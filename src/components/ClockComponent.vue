@@ -1,29 +1,27 @@
 <template>
   <div>
-    <vue-clockpicker :value="searchText" @timeset="searchText = $event" />
+    <vue-clockpicker :value="searchText" @timeset="$emit('input', $event)"/>
     <h1>{{ searchText }}</h1>
-    <br>
-    <vue-clock v-model="searchText"/>
-    <br>
-    {{ searchText }}
   </div>
 </template>
 
 <script>
 import VueClockPicker from '@pencilpix/vue2-clock-picker';
 import '@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.min.css';
-import ClockComponent from './ClockComponent.vue';
 
 export default {
-  name: 'HelloWorld',
+  props: {
+    searchText: {
+      type: String,
+      default: ''
+    }
+  },
   components: {
     'vue-clockpicker': VueClockPicker,
-    'vue-clock': ClockComponent,
   },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      searchText: '20:00',
     }
   }
 }
