@@ -6,6 +6,12 @@
     <vue-clock v-model="searchText"/>
     <br>
     {{ searchText }}
+    <br>
+    <vue-date v-model="date"/>
+    <h1>{{ date }}</h1>
+    <hr>
+    <date-vue v-model="date"/>
+    <h1>{{ date }}</h1>
   </div>
 </template>
 
@@ -13,17 +19,22 @@
 import VueClockPicker from '@pencilpix/vue2-clock-picker';
 import '@pencilpix/vue2-clock-picker/dist/vue2-clock-picker.min.css';
 import ClockComponent from './ClockComponent.vue';
+import Datepicker from 'vuejs-datepicker';
+import VueDate from 'vue-date';
 
 export default {
   name: 'HelloWorld',
   components: {
     'vue-clockpicker': VueClockPicker,
     'vue-clock': ClockComponent,
+    'vue-date': Datepicker,
+    'date-vue': VueDate,
   },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
       searchText: '20:00',
+      date: '',
     }
   }
 }
